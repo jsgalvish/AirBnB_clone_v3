@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module for City related endpoints"""
+"""City related endpoints"""
 from api.v1.views import app_views
 from api.v1.views import *
 from flask import jsonify, make_response, abort, request
@@ -13,19 +13,19 @@ parent_model = "State"
 @app_views.route("/states/<state_id>/cities", strict_slashes=False,
                  methods=["GET"])
 def get_cities(state_id):
-    """GET /state api route"""
+    """getting /state api way"""
     return get_models(parent_model, state_id, "cities")
 
 
 @app_views.route("/cities/<city_id>", methods=["GET"])
 def get_city(city_id):
-    """GET /city api route"""
+    """getting /city api way"""
     return get_model(model, city_id)
 
 
 @app_views.route("/cities/<city_id>", methods=["DELETE"])
 def delete_city(city_id):
-    """DELETE /city api route"""
+    """deletting /city api way"""
     return delete_model(model, city_id)
 
 
@@ -39,6 +39,6 @@ def post_city(state_id):
 
 @app_views.route("/cities/<city_id>", methods=["PUT"])
 def put_city(city_id):
-    """PUT /cities api route"""
+    """putting /cities api way"""
     ignore_data = ["id", "created_at", "updated_at"]
     return put_model(model, city_id, ignore_data)

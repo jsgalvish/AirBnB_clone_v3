@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module for City related endpoints"""
+"""City related end points"""
 from api.v1.views import app_views
 from api.v1.views import *
 from flask import jsonify, make_response, abort, request
@@ -13,28 +13,28 @@ parent_model = "City"
 @app_views.route("/cities/<city_id>/places", strict_slashes=False,
                  methods=["GET"])
 def get_places(city_id):
-    """GET /city api route"""
+    """getting /city api way"""
     return get_models(parent_model, city_id, "places")
 
 
 @app_views.route("/places/<place_id>", strict_slashes=False,
                  methods=["GET"])
 def get_place(place_id):
-    """GET /place api route"""
+    """getting /place api way"""
     return get_model(model, place_id)
 
 
 @app_views.route("/places/<place_id>", strict_slashes=False,
                  methods=["DELETE"])
 def delete_place(place_id):
-    """DELETE /place api route"""
+    """deletting /place api way"""
     return delete_model(model, place_id)
 
 
 @app_views.route("/cities/<city_id>/places", strict_slashes=False,
                  methods=["POST"])
 def post_place(city_id):
-    """POST /places api route"""
+    """posting /places api way"""
     required_data = {"name", "user_id"}
     return post_model(model, parent_model, city_id, required_data)
 
@@ -42,6 +42,6 @@ def post_place(city_id):
 @app_views.route("/places/<place_id>", strict_slashes=False,
                  methods=["PUT"])
 def put_place(place_id):
-    """PUT /places api route"""
+    """putting /places api way"""
     ignore_data = ["id", "created_at", "updated_at", "user_id", "city_id"]
     return put_model(model, place_id, ignore_data)

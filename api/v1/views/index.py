@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module for app_views /status route"""
+"""app_views /status way"""
 from api.v1.views import app_views
 from flask import jsonify
 from models import storage
@@ -7,13 +7,13 @@ from models import storage
 
 @app_views.route('/status', methods=["GET"])
 def status():
-    """Return /status api route"""
+    """Return /status api way"""
     return jsonify({"status": "OK"})
 
 
 @app_views.route('/stats', methods=["GET"])
 def stats():
-    """Return /status api route"""
+    """Return /status api way"""
     d = {
         "amenities": "Amenity",
         "cities": "City",

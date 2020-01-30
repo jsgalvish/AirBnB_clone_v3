@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module for City related endpoints"""
+"""City related endpoints"""
 from api.v1.views import app_views
 from api.v1.views import *
 from flask import jsonify, make_response, abort, request
@@ -14,7 +14,7 @@ parent_model = None
                  methods=["GET"], defaults={"amenity_id": None})
 @app_views.route("/amenities/<amenity_id>", methods=["GET"])
 def get_amenity(amenity_id):
-    """GET /aminities api route"""
+    """getting /aminities api way"""
     if not amenity_id:
         list_objs = [v.to_dict() for v in storage.all(model).values()]
         return jsonify(list_objs)
@@ -24,19 +24,19 @@ def get_amenity(amenity_id):
 
 @app_views.route("/amenities/<amenity_id>", methods=["DELETE"])
 def delete_amenity(amenity_id):
-    """DELETE /amenity api route"""
+    """deletting /amenity api way"""
     return delete_model(model, amenity_id)
 
 
 @app_views.route("/amenities", strict_slashes=False, methods=["POST"])
 def post_amenity():
-    """POST /amenity api route"""
+    """posting /amenity api way"""
     required_data = {"name"}
     return post_model(model, None, None, required_data)
 
 
 @app_views.route("/amenities/<amenity_id>", methods=["PUT"])
 def put_amenity(amenity_id):
-    """PUT /amenity api route"""
+    """putting /amenity api way"""
     ignore_data = ["id", "created_at", "updated_at"]
     return put_model(model, amenity_id, ignore_data)

@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""Module for Blueprint app_views"""
+"""Blueprint app_views module"""
 from flask import Blueprint, abort, make_response
 
 
 def get_models(parent_model, parent_model_id, parent_getter):
-    """GET /model api route"""
+    """getting /model api way"""
     parent = storage.get(parent_model, parent_model_id)
     if not parent:
         return make_response(jsonify({"error": "Not found"}), 404)
@@ -13,7 +13,7 @@ def get_models(parent_model, parent_model_id, parent_getter):
 
 
 def get_model(model, model_id):
-    """GET /model api route"""
+    """getting /model api way"""
     obj = storage.get(model, model_id)
     if not obj:
         return make_response(jsonify({"error": "Not found"}), 404)
@@ -22,7 +22,7 @@ def get_model(model, model_id):
 
 
 def delete_model(model, model_id):
-    """DELETE /model api route"""
+    """deletting /model api way"""
     obj = storage.get(model, model_id)
     if not obj:
         return make_response(jsonify({"error": "Not found"}), 404)
@@ -33,7 +33,7 @@ def delete_model(model, model_id):
 
 
 def post_model(model, parent_model, parent_model_id, required_data):
-    """POST /model api route"""
+    """postting /model api way"""
     from models.engine.db_storage import classes
     if parent_model:
         parent = storage.get(parent_model, parent_model_id)
@@ -63,7 +63,7 @@ def post_model(model, parent_model, parent_model_id, required_data):
 
 
 def put_model(model, model_id, ignore_data):
-    """PUT /model api route"""
+    """put /model api way"""
     obj = storage.get(model, model_id)
     if not obj:
         return make_response(jsonify({"error": "Not found"}), 404)
