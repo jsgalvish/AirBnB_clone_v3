@@ -154,6 +154,8 @@ EOF  all  create  destroy  help  quit  show  update
 No known bugs at this time. 
 
 ## Authors
+Sebastian Galvis - [Github](https://github.com/jsgalvish) / [Twitter](https://twitter.com/JuanSGalvisH)  
+Miguel Salazar - [Github](https://github.com/zelda096) / [Twitter](https://twitter.com/MigueloSenpai)  
 Alexa Orrico - [Github](https://github.com/alexaorrico) / [Twitter](https://twitter.com/alexa_orrico)  
 Jennifer Huang - [Github](https://github.com/jhuang10123) / [Twitter](https://twitter.com/earthtojhuang)
 
