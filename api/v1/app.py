@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module for Flask REST application"""
+"""Flask REST application"""
 from flask import Flask, jsonify
 from models import storage
 from api.v1.views import app_views
@@ -14,13 +14,13 @@ CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
 
 @app.teardown_appcontext
 def closedb(foo):
-    """Closes db session"""
+    """exit the data base session"""
     storage.close()
 
 
 @app.errorhandler(404)
 def not_found(error):
-    """error handle function"""
+    """warning of handle function"""
     return make_response(jsonify({"error": "Not found"}), 404)
 
 
